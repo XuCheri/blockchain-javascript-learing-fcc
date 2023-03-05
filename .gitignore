@@ -1,3 +1,18 @@
 .env
 node_modules
 .encryptedKey.json
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+scripts
+test
+contracts
+hardhat.config.js
+
+# Hardhat files
+cache
+artifacts
+
