@@ -1,8 +1,10 @@
 {
-  "name": "ethers-simple-storage-fcc",
+  "name": "blockchain-javascript-learing-fcc",
   "version": "1.0.0",
-  "main": "index.js",
+  "repository": "https://github.com/XuCheri/blockchain-javascript-learing-fcc.git",
+  "author": "cheri <1156429007@qq.com>",
   "license": "MIT",
+<<<<<<< Updated upstream
   "dependencies": {
     "dotenv": "^16.0.3",
     "ethers": "^6.0.8",
@@ -13,5 +15,23 @@
   },
   "scripts": {
     "compile": "yarn solcjs --bin --abi --include-path node_modules/ --base-path . -o . SimpleStorage.sol"
+=======
+  "devDependencies": {
+    "@ethersproject/abi": "^5.4.7",
+    "@ethersproject/providers": "^5.4.7",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@nomiclabs/hardhat-etherscan": "^3.0.0",
+    "@typechain/ethers-v5": "^10.1.0",
+    "@typechain/hardhat": "^6.1.2",
+    "chai": "^4.2.0",
+    "ethers": "^5.4.7",
+    "hardhat": "^2.13.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "solidity-coverage": "^0.8.0",
+    "typechain": "^8.1.0"
+>>>>>>> Stashed changes
   }
 }
