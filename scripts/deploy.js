@@ -1,32 +1,47 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
-// will compile your contracts, add the Hardhat Runtime Environment's members to the
-// global scope, and execute the script.
-const hre = require("hardhat");
+/*
+ * @Author: cheri 1156429007@qq.com
+ * @Date: 2023-03-06 19:21:06
+ * @LastEditors: cheri 1156429007@qq.com
+ * @LastEditTime: 2023-03-06 22:43:15
+ * @FilePath: /blockchain-javascript-learing-fcc/scripts/deploy.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+const { ethers, run, network } = require("hardhat")
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
-
-  const lockedAmount = hre.ethers.utils.parseEther("0.001");
-
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
-
-  await lock.deployed();
-
-  console.log(
-    `Lock with ${ethers.utils.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
-  );
+    const SimpleStorageFactory = await ethers.getContractFactory(
+        "SimpleStorage"
+    )
+    console.log("Deploying simple storage...")
+    const simpleStorage = await SimpleStorageFactory.deploy()
+    await simpleStorage.deployed()
+    console.log(simpleStorage.address)
+    if (network.config.chainId === 11155111 && process.env.ETHERSCAN_API_KEY) {
+        await simpleStorage.deployTransaction.wait(6)
+        await verify(simpleStorage.address, [])
+    }
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+async function verify(contractAddress, args) {
+    console.log("Verifying contract...")
+    try {
+        await run("verify:verify", {
+            address: contractAddress,
+            constructorArguments: args,
+        })
+        console.log("Already verified")
+    } catch (error) {
+        if (error.message.toLowerCase().includes("already verified")) {
+            console.log("Already verified")
+        } else {
+            console.log(error)
+        }
+    }
+}
+
+main()
+    .then(() => process.exit(0))
+    .catch((error) => {
+        console.error(error)
+        process.exit(1)
+    })
