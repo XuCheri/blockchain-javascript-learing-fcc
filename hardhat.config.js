@@ -1,3 +1,11 @@
+/*
+ * @Author: cheri 1156429007@qq.com
+ * @Date: 2023-03-08 15:05:43
+ * @LastEditors: cheri 1156429007@qq.com
+ * @LastEditTime: 2023-03-11 15:45:37
+ * @FilePath: /blockchain-javascript-learing-fcc/hardhat.config.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 require("@nomiclabs/hardhat-waffle")
 require("hardhat-gas-reporter")
 require("@nomiclabs/hardhat-etherscan")
@@ -18,10 +26,7 @@ const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
 module.exports = {
     defaultNetwork: "hardhat",
     networks: {
-        hardhat: {
-            chainId: 31337,
-            // gasPrice: 130000000000,
-        },
+        hardhat: {},
         sepolia: {
             url: Sepolia_RPC_URL,
             accounts: [PRIVATE_KEY],
