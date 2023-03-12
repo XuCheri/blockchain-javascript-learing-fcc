@@ -1,11 +1,10 @@
 {
   "name": "blockchain-javascript-learing-fcc",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/XuCheri/blockchain-javascript-learing-fcc.git",
   "author": "cheri <1156429007@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "ethers": "^6.1.0"
+    "ethers": "^5.7.0"
   }
 }
