@@ -1,10 +1,24 @@
 {
   "name": "blockchain-javascript-learing-fcc",
   "version": "1.0.0",
-  "repository": "https://github.com/XuCheri/blockchain-javascript-learing-fcc.git",
-  "author": "cheri <1156429007@qq.com>",
-  "license": "MIT",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XuCheri/blockchain-javascript-learing-fcc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XuCheri/blockchain-javascript-learing-fcc/issues"
+  },
+  "homepage": "https://github.com/XuCheri/blockchain-javascript-learing-fcc#readme",
   "dependencies": {
     "ethers": "^5.7.0"
-  }
+  },
+  "type": "module"
 }
