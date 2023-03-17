@@ -2,7 +2,6 @@
   "name": "blockchain-javascript-learing-fcc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +18,5 @@
   "homepage": "https://github.com/XuCheri/blockchain-javascript-learing-fcc#readme",
   "dependencies": {
     "ethers": "^5.7.0"
-  },
-  "type": "module"
+  }
 }
